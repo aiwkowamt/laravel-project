@@ -14,10 +14,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::view('/admin', 'welcome');
 
-Route::prefix('admin')->group(function () {
-    Route::get('/users', [UserController::class, 'index']);
-});
+Route::resource('users', UserController::class);
